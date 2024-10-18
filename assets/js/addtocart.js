@@ -1,3 +1,4 @@
+// Mảng sản phẩm
 const products = [{
         id: 1,
         title: "Cartoon Jacket",
@@ -60,34 +61,45 @@ const products = [{
     }
 ];
 
-const productList = document.getElementById('productList');
 
+// Lấy danh sách sản phẩm và phần tử
+const productList = document.getElementById('productList');
+const cartItemsElement = document.getElementById('cartItems');
+const cartTotalElement = document.getElementById('cartTotal');
+
+// Lưu trữ sản phẩm trong giỏ hàng vào Local Storage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Hiển thị sản phẩm trên trang
 function renderProducts() {
     if (productList) {
-        productList.innerHTML = products.map((product) => `
-            <div class="shop__content">
+        productList.innerHTML = products
+            .map(
+                (product) => `
+                <div class="shop__content">
                 <div class="shop__tag">${product.tag}</div>
-                <img src="${product.image}" alt="${product.title}" class="shop__img">
-                <h3 class="shop__title">${product.title}</h3>
-                <span class="shop__subtitle">${product.subtitle}</span>
-
-                <div class="shop__prices">
-                    <span class="shop__price">$${product.price.toFixed(2)}</span>
-                    <span class="shop__discounts">$${product.discounted_price.toFixed(2)}</span>
+                    <img src="${product.image}" alt="${product.title}" class="shop__img">
+                    <h3 class="shop__title">${product.title}</h3>
+                    <span class="shop__subtitle">${product.subtitle}</span>
+                    <div class="shop__prices">
+                        <span class="shop__price">$${product.price.toFixed(2)}</span>
+                        <span class="shop__discounts">$${product.discounted_price.toFixed(2)}</span>
+                    </div>
+                     
+                        <a href="#" class="add-to-cart" data-id="${product.id}">Add To Cart</a>
                 </div>
+                `,
+            )
+            .join("");
 
-                <a href="#" class="button shop__button" data-id ="${product.id}">
-                    <i class="bx bx-cart-alt shop__icon"></i> 
-                </a>
-            </div>
-        `).join("");
+        //Add to cart
+        const addToCartButtons = document.getElementsByClassName("add-to-cart");
+        for (let i = 0; i < addToCartButtons.length; i++) {
+            const button = addToCartButtons[i]; // Đặt tên biến là button
+            button.addEventListener("click", addToCart);
+        }
     }
 }
-
-// Gọi hàm để hiển thị sản phẩm
-renderProducts();
-
-
 
 // Add to cart
 function addToCart(event) {

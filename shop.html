@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" class="js-color-style" href="assets/css/colors/color-1.css">
 
-    <title>Responsive e-commerce website - Crypticalcoder</title>
 </head>
 
 <body>
-    <!--=============== HEADER ===============-->
+    <!--Header-->
     <header class="header" id="header">
-        <nav class="nav container">
+        <!--Nav-->
+        <div class="nav container">
             <a href="index.html" class="nav__logo">
                 <i class="bx bxs-shopping-bags nav__logo-icon"></i> e-shopper
             </a>
@@ -75,8 +75,11 @@
                     <i class="bx bx-grid-alt"></i>
                 </div>
             </div>
-        </nav>
+            <!--Close icon for mobile menu-->
+
+        </div>
     </header>
+    <!--Home-->
 
     <!--=============== CART ===============-->
     <div class="cart " id="cart">
@@ -95,14 +98,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                            <i class="bx bx-minus"></i>
-                        </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                            <i class="bx bx-plus"></i>
-                        </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -122,14 +125,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                            <i class="bx bx-minus"></i>
-                        </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                            <i class="bx bx-plus"></i>
-                        </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -149,14 +152,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                            <i class="bx bx-minus"></i>
-                        </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                            <i class="bx bx-plus"></i>
-                        </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -199,8 +202,6 @@
         </form>
 
     </div>
-
-
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== SHOP ===============-->
@@ -322,6 +323,22 @@
             </div>
         </section>
     </main>
+
+    <!--Products-->
+
+    <section class="products container" id="products">
+        <!--Heading-->
+        <!--Products Container-->
+        <div class="product-container" id="productList">
+
+        </div>
+    </section>
+
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
     <!--=============== FOOTER ===============-->
     <footer class="footer section">
         <div class="footer__container container grid">
@@ -374,16 +391,10 @@
             </div>
         </div>
 
-        <span class="footer__copy">&#169;NDChieu. All rights reserved</span>
     </footer>
 
-    <!--=============== SCROLL UP ===============-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="bx bx-up-arrow-alt scrollup__icon"></i>
-    </a>
-
-
     <!--=============== STYLE SWITCHER ===============-->
+
     <div class="style__switcher">
         <div class="style__switcher-toggler s__icon">
             <i class="bx bx-cog bx-spin"></i>
@@ -411,10 +422,8 @@
     </div>
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!--=============== JS ===============-->
-    <script src="assets/js/main.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/addtocart.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@ if (navClose) {
 }
 
 /*=============== HIỂN THỊ GIỎ HÀNG ===============*/
-const cart = document.getElementById('cart'),
+const shoppingCart = document.getElementById('cart'),
     cartShop = document.getElementById('cart-shop'),
     cartClose = document.getElementById('cart-close')
 
@@ -28,7 +28,7 @@ const cart = document.getElementById('cart'),
 /* Kiểm tra xem biến có tồn tại không */
 if (cartShop) {
     cartShop.addEventListener("click", () => {
-        cart.classList.add('show-cart') // Thêm lớp 'show-cart' để hiển thị giỏ hàng
+        shoppingCart.classList.add('show-cart') // Thêm lớp 'show-cart' để hiển thị giỏ hàng
     });
 }
 
@@ -36,7 +36,7 @@ if (cartShop) {
 /* Kiểm tra xem biến có tồn tại không */
 if (cartClose) {
     cartClose.addEventListener("click", () => {
-        cart.classList.remove('show-cart') // Xóa lớp 'show-cart' để ẩn giỏ hàng
+        shoppingCart.classList.remove('show-cart') // Xóa lớp 'show-cart' để ẩn giỏ hàng
     });
 }
 
