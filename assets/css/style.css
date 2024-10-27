@@ -241,6 +241,54 @@ input {
     cursor: pointer;
 }
 
+.add-to-cart {
+    background-color: var(--first-color);
+    color: var(--bg-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 0.6rem;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+}
+
+.cart-item .remove-from-cart {
+    border-radius: 4px;
+    padding: 12px;
+    background-color: var(--first-color);
+    font-weight: 600;
+}
+
+.cart-t {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cart-t .checkout-btn {
+    background-color: var(--first-color);
+    color: var(--bg-color);
+    font-weight: 600;
+    margin-left: 20px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 #cart-icon {
     position: relative;
     font-size: 1.25rem;
@@ -255,13 +303,13 @@ input {
 #cart-icon[data-quantity]:after {
     content: attr(data-quantity);
     position: absolute;
-    top: -4 px;
+    top: -4px;
     right: -14px;
     width: 20px;
     height: 20px;
     background-color: var(--first-color);
     border-radius: 50%;
-    color: #fff;
+    color: var(--bg-color);
     font-size: 12px;
     font-weight: 500;
     display: flex;
@@ -416,10 +464,6 @@ input {
     border-radius: .5rem;
     font-weight: var(--font-medium);
     transition: .3s;
-}
-
-.button:hover {
-    background-color: var(--first-color-alt);
 }
 
 .button__icon {
@@ -679,7 +723,6 @@ input {
 .shop__content {
     position: relative;
     background-color: var(--container-color);
-    padding: 2rem 0;
     border-radius: 1rem;
     text-align: center;
     overflow: hidden;
@@ -1256,7 +1299,8 @@ input {
     transition: .6s;
 }
 
-.login__title-center {
+.login__title-center,
+.register__title-center {
     font-size: var(--h2-font-size);
     text-align: center;
     margin-bottom: var(--mb-3);
@@ -1271,22 +1315,127 @@ input {
     cursor: pointer;
 }
 
-.login__form {
+.login__form,
+.register__form {
     row-gap: 1.5rem;
 }
 
-.login__content {
+.login__content,
+.register__content {
+    display: grid;
     background-color: var(--container-color);
     border-radius: .5rem;
     padding: .75rem 1rem .25rem;
 }
 
-.login__label {
+.login__label,
+.register__label {
     font-size: var(--small-font-size);
     color: var(--title-color);
 }
 
 .login__input {
+    width: 100%;
+    background-color: var(--container-color);
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    padding: .25rem .5rem .5rem 0;
+}
+
+.login-message {
+    font-size: var(--small-font-size);
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
+.signup {
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+}
+
+.signup a {
+    color: var(--first-color);
+}
+
+
+/* Show login */
+
+.show-login {
+    right: 0;
+}
+
+
+/*=============== Register ===============*/
+
+.register__label,
+.register-message {
+    text-align: left;
+}
+
+.register__content.invalid .register__input,
+.login__content.invalid .login__input {
+    border-color: #f33a58;
+}
+
+.register__content.invalid .register-message,
+.login__content.invalid .login-message {
+    color: #f33a58;
+}
+
+.register-message {
+    font-size: var(--small-font-size);
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
+.register {
+    position: fixed;
+    background-color: var(--body-color);
+    z-index: var(--z-fixed);
+    width: 420px;
+    box-shadow: -2px 0 4px var(--shadow);
+    height: 100%;
+    /* top: -100%; */
+    right: -100%;
+    padding: 3.5rem 2rem;
+    transition: .6s;
+}
+
+.register__title-center {
+    font-size: var(--h2-font-size);
+    text-align: center;
+    margin-bottom: var(--mb-3);
+}
+
+.register__close {
+    font-size: 2rem;
+    color: var(--title-color);
+    position: absolute;
+    top: 1.25rem;
+    right: 0.9rem;
+    cursor: pointer;
+}
+
+.register__form {
+    max-height: 400px;
+    overflow-y: auto;
+    row-gap: 1.5rem;
+}
+
+.register__content {
+    display: grid;
+    background-color: var(--container-color);
+    border-radius: .5rem;
+    padding: .75rem 1rem .25rem;
+}
+
+.register__label {
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.register__input {
     width: 100%;
     background-color: var(--container-color);
     color: var(--text-color);
@@ -1307,7 +1456,7 @@ input {
 
 /* Show login */
 
-.show-login {
+.show-register {
     right: 0;
 }
 
@@ -1865,7 +2014,7 @@ input {
         row-gap: 2rem;
     }
     .footer__container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         row-gap: 2rem;
         justify-content: start;
     }
@@ -1899,6 +2048,25 @@ input {
     .cart,
     .nav__menu {
         width: 100%;
+    }
+    .cart-item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cart-item-price {
+        margin: 22px;
+        font-size: 16px;
+    }
+    .cart-item img {
+        width: 100px;
+        height: 100px;
+    }
+    .cart-item-info {
+        font-size: 14px;
+    }
+    .cart-item .remove-from-cart {
+        max-width: 100px;
+        padding: 4px;
     }
     .shop__container {
         grid-template-columns: .8fr;
