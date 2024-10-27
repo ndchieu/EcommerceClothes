@@ -487,7 +487,6 @@ function renderProducts() {
     }
 }
 
-// Add to cart
 function addToCart(event) {
     event.preventDefault() // Để tránh tải lại trang khi nhấn vào link
     const productID = parseInt(event.target.dataset.id)

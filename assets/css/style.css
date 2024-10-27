@@ -731,6 +731,7 @@ input {
 
 .shop__img {
     width: 150px;
+    height: 170px;
     margin-bottom: var(--mb-1);
     transition: .3s;
 }
