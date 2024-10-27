@@ -175,30 +175,67 @@
     <!--=============== LOGIN ===============-->
     <div class="login" id="login">
         <i class="bx bx-x login__close" id="login-close"></i>
-
         <h2 class="login__title-center">Login</h2>
-        <form action="" class="login__form grid">
+
+        <form action="" class="login__form grid" id="login__form">
             <div class="login__content">
                 <label for="" class="login__label">Email</label>
-                <input type="email" class="login__input">
+                <input id="login_email" name="email" type="email" class="login__input">
+                <span class="login-message"></span>
             </div>
-
             <div class="login__content">
                 <label for="" class="login__label">Password</label>
-                <input type="password" class="login__input">
+                <input id="login_password" name="password" type="password" class="login__input">
+                <span class="login-message"></span>
             </div>
-
             <div>
-                <a href="#" class="button">Sign In</a>
+                <button href="#" class="button">Login</button>
             </div>
 
             <div>
                 <p class="signup">Not a member ?
-                    <a href="registration.html"> Sign Up Now</a>
+                    <a id="register-link" href="#"> Sign Up Now</a>
                 </p>
             </div>
         </form>
 
+    </div>
+
+    <!--=============== REGISTER ===============-->
+    <div class="register" id="register">
+        <i class="bx bx-x register__close" id="register-close"></i>
+        <h2 class="register__title-center">Register</h2>
+
+        <form action="" class="register__form grid" id="register__form">
+            <div class="register__content">
+                <label for="fullname" class="register__label">Fullname</label>
+                <input id="fullname" name="fullname" type="text" class="register__input">
+                <span class="register-message"></span>
+            </div>
+            <div class="register__content">
+                <label for="email" class="register__label">Email</label>
+                <input id="email" name="email" type="email" class="register__input">
+                <span class="register-message"></span>
+            </div>
+            <div class="register__content">
+                <label for="password" class="register__label">Password</label>
+                <input id="password" name="password" type="password" class="register__input">
+                <span class="register-message"></span>
+            </div>
+            <div class="register__content">
+                <label for="password_confirmation" class="register__label">Confirm Password</label>
+                <input id="password_confirmation" name="password_confirmation" type="password" class="register__input">
+                <span class="register-message"></span>
+            </div>
+            <div>
+                <button href="#" class="button">Register</button>
+            </div>
+            <div>
+                <p class="signup">Not a member ?
+                    <a id="register-link" href="#"> Sign Up Now</a>
+                </p>
+            </div>
+        </form>
     </div>
 
 
@@ -356,6 +393,42 @@
 
     <!--=============== JS ===============-->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        Validator({
+            form: '#register__form',
+            errorSelector: '.register-message',
+            formGroupSelector: '.register__content',
+            rules: [
+                Validator.isRequired('#fullname', 'Please enter your name'),
+                Validator.isRequired('#email', 'Please enter your email'),
+                Validator.isEmail('#email', 'Email is not correct'),
+                Validator.minLength('#password', 6, 'Please enter a minimum of 6 characters'),
+                Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
+                Validator.isConfirmed('#password_confirmation', function() {
+                    return document.querySelector('#register__form #password').value;
+                }, 'Nhập lại mật khẩu không chính xác')
+            ],
+            onSubmit: function(data) {
+                console.log(data);
+            }
+        });
+
+        Validator({
+            form: '#login__form',
+            errorSelector: '.login-message',
+            formGroupSelector: '.login__content',
+            rules: [
+                Validator.isRequired('#login_email', 'Please enter your email'),
+                Validator.isEmail('#login_email', 'Email is not correct'),
+                Validator.isRequired('#login_password', 'Please enter your password'),
+                Validator.minLength('#login_password', 6, 'Please enter a minimum of 6 characters')
+            ],
+            onSubmit: function(data) {
+                console.log(data); // Thao tác khi form login hợp lệ
+            }
+        });
+    </script>
 </body>
 
 </html>
