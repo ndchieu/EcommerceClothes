@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" class="js-color-style" href="assets/css/colors/color-1.css">
 
-    <title>Responsive e-commerce website - Crypticalcoder</title>
+    <title>Ecommerce Colthes (NDChieu)</title>
 </head>
 
 <body>
@@ -155,12 +155,17 @@
 
 
     <!--Cart-->
-    <section class="shop section container">
+    <section class="shop section  container grid">
         <h2 class="breadcrumb__title">Shop Page</h2>
         <h3 class="breadcrumb__subtitle">Home > <span>Shop</span></h3>
         <div class="cart-box">
+            <div class="search__bar">
+                <input type="text" id="searchBar" placeholder="Search for products...">
+                <i class="bx bx-search" id="btn"></i>
+            </div>
             <div class="cart-data">
-                <div id="cartItems">
+                <div id="cartItems" class="cart_list">
+
                 </div>
             </div>
             <div class="cart-t">
@@ -256,7 +261,6 @@
     </div>
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="./assets/js/addtocart.js"></script>
     <script src="./assets/js/main.js"></script>
 
     <script>
