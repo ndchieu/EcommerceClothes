@@ -383,60 +383,72 @@ const products = [{
         id: 1,
         title: "Cartoon Jacket",
         tag: "New",
+        category: "Jacket",
         image: "assets/img/product-1.png",
         subtitle: "Accessory",
         price: 14.9,
         discounted_price: 25.99,
+        description: "This is a description of the product.",
         link: "details.html"
     },
     {
         id: 2,
         title: "Clothing Hat Coat",
         tag: "Sale",
+        category: "Coat",
         image: "assets/img/product-2.png",
         subtitle: "Accessory",
         price: 11.9,
         discounted_price: 21.99,
+        description: "This is a description of the product.",
         link: "details.html"
     },
     {
         id: 3,
         title: "Fur Jacket",
         tag: "Sale",
+        category: "Adidas",
         image: "assets/img/product-3.png",
         subtitle: "Accessory",
         price: 4.9,
         discounted_price: 15.99,
+        description: "This is a description of the product.",
         link: "details.html"
     },
     {
         id: 4,
         title: "Fleece Jacket",
         tag: "New",
+        category: "Adidas",
         image: "assets/img/product-4.png",
         subtitle: "Accessory",
         price: 7.9,
         discounted_price: 15.99,
+        description: "This is a description of the product.",
         link: "details.html"
     },
     {
         id: 5,
         title: "Windbreakr Jacket",
         tag: "New",
+        category: "Coat",
         image: "assets/img/product-5.png",
         subtitle: "Accessory",
-        price: 10.9,
-        discounted_price: 15.99,
+        price: 109,
+        discounted_price: 159.9,
+        description: "This is a description of the product.",
         link: "details.html"
     },
     {
         id: 6,
         title: "Adidas Tracksubt",
         tag: "Sale",
+        category: "Jacket",
         image: "assets/img/product-6.png",
         subtitle: "Accessory",
-        price: 11.9,
-        discounted_price: 15.99,
+        price: 119,
+        discounted_price: 159.9,
+        description: "This is a description of the product.",
         link: "details.html"
     }
 ];
@@ -468,7 +480,7 @@ function renderProducts() {
         productList.innerHTML = products
             .map(
                 (product) => `
-            <div class="shop__content swiper-slide">
+            <div class="shop__content swiper-slide" onclick="showDetails(${product.id})">
                 <div class="shop__tag">${product.tag}</div>
                 <img src="${product.image}" alt="${product.title}" class="shop__img">
                 <h3 class="shop__title">${product.title}</h3>
@@ -484,15 +496,16 @@ function renderProducts() {
             `
             )
             .join("");
+    }
 
-        // Thêm sự kiện cho các nút "Add to Cart"
-        const addToCartButtons = document.getElementsByClassName("add-to-cart");
-        for (let i = 0; i < addToCartButtons.length; i++) {
-            const button = addToCartButtons[i];
-            button.addEventListener("click", addToCart);
-        }
+    // Thêm sự kiện cho các nút "Add to Cart"
+    const addToCartButtons = document.getElementsByClassName("add-to-cart");
+    for (let i = 0; i < addToCartButtons.length; i++) {
+        const button = addToCartButtons[i];
+        button.addEventListener("click", addToCart);
     }
 }
+
 
 // Hàm để lọc và hiển thị sản phẩm theo từ khóa tìm kiếm
 function filterProducts(searchTerm) {
@@ -537,20 +550,103 @@ function renderFilteredProducts(filteredProducts) {
     }
 }
 
+// Hàm để hiển thị chi tiết sản phẩm
+function renderDetails() {
+    // Lấy thông tin sản phẩm từ localStorage
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (product) {
+        // Tạo phần tử chứa thông tin chi tiết
+        const detailsContainer = document.querySelector(".details__container");
+
+        // Nếu tìm thấy sản phẩm, hiển thị thông tin
+        detailsContainer.innerHTML = `
+            <div class="product__images grid">
+                <div class="product__img">
+                    <div class="details__img-tag">${product.tag}</div>
+                    <img src="${product.image}" alt="${product.title}">
+                </div>
+                <div class="product__img">
+                    <img src="assets/img/details-2.png" alt="">
+                </div>
+                <div class="product__img">
+                    <img src="assets/img/details-3.png" alt="">
+                </div>
+                <div class="product__img">
+                    <img src="assets/img/details-4.png" alt="">
+                </div>
+            </div>
+            <div class="product__info">
+                <p class="details__subtitle">${product.category}</p>
+                <h3 class="details__title">${product.title}</h3>
+
+                <div class="rating">
+                    <div class="stars">
+                        ${renderStars()} <!-- Hàm để hiển thị số sao -->
+                    </div>
+                    <span class="reviews__count">40 + Reviews</span>
+                </div>
+
+                <div class="details__prices">
+                    <span class="details__price">$${product.price.toFixed(2)}</span>
+                    <span class="details__discount">$${product.discounted_price.toFixed(2)}</span>
+                    <span class="discount__percentage">${calculateDiscountPercentage(product.price, product.discounted_price)}% OFF</span>
+                </div>
+
+                <div class="details__description">
+                    <h3 class="description__title">Product Details</h3>
+                    <div class="description__details">
+                        <p>${product.description || "No description available."}</p>
+                    </div>
+                </div>
+
+                <div class="cart__amount">
+                    <input class="cart-item-quantity" type="number" min="1" value="1" data-id="${product.id}"> <!-- Sử dụng product.id ở đây -->
+                    <i class="bx bx-trash-alt cart__amount-heart"></i>
+                </div>
+                <a href="#" class="button" data-id="${product.id}" onclick="addToCart(event)">Add To Cart</a>
+
+            </div>
+        `;
+    }
+}
+
+
+// Hàm để hiển thị số sao
+function renderStars() {
+    let starsHtml = '';
+    for (let i = 0; i < 4; i++) {
+        starsHtml += '<i class="bx bxs-star"></i>';
+    }
+    starsHtml += '<i class="bx bx-star"></i>'; // Một sao chưa đầy
+    return starsHtml;
+}
+
+// Hàm để tính phần trăm giảm giá
+function calculateDiscountPercentage(originalPrice, discountedPrice) {
+    return Math.round(((originalPrice - discountedPrice) / originalPrice) * 100);
+}
+
+
+// Gọi hàm renderDetails khi trang được tải
+window.onload = renderDetails;
+
 
 // Add to cart
 function addToCart(event) {
-    event.preventDefault(); // Để tránh tải lại trang khi nhấn vào link
-    const productID = parseInt(event.target.dataset.id);
-    const product = products.find((product) => product.id === productID);
+    event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a> khi nhấn
+
+    const productID = parseInt(event.target.dataset.id); // Lấy ID sản phẩm từ data-id
+    const product = products.find((product) => product.id === productID); // Tìm sản phẩm theo ID
 
     if (product) {
-        // Nếu sản phẩm đã tồn tại trong giỏ hàng
+        // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
         const existingItem = cart.find((item) => item.id === productID);
 
         if (existingItem) {
-            existingItem.quantity++;
+            existingItem.quantity++; // Tăng số lượng nếu đã tồn tại
         } else {
+            // Nếu chưa tồn tại, thêm sản phẩm mới vào giỏ hàng
             const cartItem = {
                 id: product.id,
                 title: product.title,
@@ -558,15 +654,17 @@ function addToCart(event) {
                 image: product.image,
                 quantity: 1,
             };
-            cart.push(cartItem);
+            cart.push(cartItem); // Thêm sản phẩm vào giỏ hàng
         }
 
-        //Change Add To cart text to added
-        // event.target.innerText = "Added";
-        updateCartIcon();
-        renderCartItems();
-        saveToLocalStorage();
-        calculateCartTotal();
+        // Cập nhật văn bản nút "Add to Cart" thành "Added"
+        event.target.innerText = "Added"; // Thay đổi văn bản nút
+        event.target.disabled = true; // Vô hiệu hóa nút để không thể thêm lại
+
+        updateCartIcon(); // Cập nhật biểu tượng giỏ hàng
+        renderCartItems(); // Hiển thị lại các sản phẩm trong giỏ hàng
+        saveToLocalStorage(); // Lưu giỏ hàng vào localStorage
+        calculateCartTotal(); // Tính toán tổng giá trị giỏ hàng
     }
 }
 
@@ -638,6 +736,7 @@ function calculateCartTotal() {
     return total;
 }
 
+
 //Claculate If On Cart Page
 // Kiểm tra trang và gọi hàm render
 if (window.location.pathname.includes('cart.html')) {
@@ -668,4 +767,36 @@ function updateCartIcon() {
     const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
     const cartIcon = document.getElementById('cart-icon');
     cartIcon.setAttribute('data-quantity', totalQuantity);
+}
+
+
+
+/**Review Shop */
+
+let valueDisplays = document.querySelectorAll(".num");
+let interval = 3000;
+valueDisplays.forEach((valueDisplay) => {
+    let startValue = 0;
+    let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+    let duration = Math.floor(interval / endValue);
+    let counter = setInterval(function() {
+        startValue += 1;
+        valueDisplay.textContent = startValue;
+        if (startValue == endValue) {
+            clearInterval(counter);
+        }
+    }, duration);
+});
+
+
+
+function showDetails(productId) {
+    // Tìm sản phẩm theo id
+    const product = products.find((item) => item.id === productId);
+
+    // Lưu thông tin sản phẩm vào localStorage
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+    // Điều hướng đến trang chi tiết
+    window.location.href = "details.html";
 }

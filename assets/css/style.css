@@ -524,6 +524,7 @@ input {
 .shop__content {
     position: relative;
     background-color: var(--container-color);
+    max-height: 325px;
     width: 310px;
     padding: 2rem 0;
     border-radius: 1rem;
@@ -765,7 +766,7 @@ input {
     gap: 1.6rem;
 }
 
-.shop__content {
+.shop__container.shop__content {
     position: relative;
     background-color: var(--container-color);
     border-radius: 1rem;
@@ -1204,6 +1205,52 @@ input {
 }
 
 
+/*=============== REVIEW ===============*/
+
+.review.section {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+    align-items: center;
+    background-color: var(--container-color);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+}
+
+.review__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 80px;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.review__item {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 120px;
+    min-height: 100px;
+    align-items: center;
+    text-align: center;
+    background-color: var(--body-color);
+    border-radius: .25rem;
+}
+
+.review__item i {
+    font-size: 2rem;
+    color: var(--first-color);
+}
+
+.review__item .text {
+    font-size: .825rem;
+    color: var(--first-color);
+}
+
+.review__item .num {
+    font-size: 2rem;
+    color: var(--first-color);
+}
+
+
 /*=============== FOOTER ===============*/
 
 .footer {
@@ -1617,6 +1664,41 @@ input {
 .cart__prices-total {
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 

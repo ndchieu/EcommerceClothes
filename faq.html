@@ -437,7 +437,7 @@
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
                 Validator.isConfirmed('#password_confirmation', function() {
                     return document.querySelector('#register__form #password').value;
-                }, 'Nhập lại mật khẩu không chính xác')
+                }, 'Re-enter invalid password')
             ],
             onSubmit: function(data) {
                 console.log(data);

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Ecommerce Colthes (NDChieu)</title>
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -253,14 +253,14 @@
             <h3 class="breadcrumb__subtitle">Home > <span>Shop</span></h3>
 
             <div class="shop__container grid">
-                <div class="sidebar">
+                <div class="sidebar" id="buttons">
                     <h3 class="filter__title">Select Filters</h3>
                     <div class="search__bar">
                         <input type="text" id="searchBar" placeholder="Search for products...">
                         <i class="bx bx-search" id="btn"></i>
                     </div>
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Condition</h3>
+                        <button class="filter__subtitle" onclick="filterProduct('Jacket')">Condition</button>
                         <div class="filter">
                             <input type="checkbox" name="" id="">
                             <p>New </p><span>(13)</span>
@@ -272,7 +272,7 @@
                     </div>
 
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Size</h3>
+                        <button class="filter__subtitle" onclick="filterProduct('Coat')">Size</button>
                         <div class="filter">
                             <input type="checkbox" name="" id="">
                             <p>S </p><span>(5)</span>
@@ -292,7 +292,7 @@
                     </div>
 
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Categories</h3>
+                        <button class="filter__subtitle" onclick="filterProduct('Adidas')">Categories</button>
                         <div class="filter">
                             <input type="checkbox" name="" id="">
                             <p>Men </p><span>(22)</span>
@@ -312,7 +312,7 @@
                     </div>
 
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Styles</h3>
+                        <button class="filter__subtitle" onclick="filterProduct('Coat')">Styles</button>
                         <div class="filter">
                             <input type="checkbox" name="" id="">
                             <p>Casnal </p><span>(11)</span>
@@ -328,7 +328,7 @@
                     </div>
 
                     <div class="filter__content">
-                        <h3 class="filter__subtitle">Sub Categories</h3>
+                        <button class="filter__subtitle" onclick="filterProduct()">Sub Categories</button>
                         <div class="filter">
                             <input type="checkbox" name="" id="">
                             <p>Jackets </p><span>(43)</span>
@@ -369,6 +369,14 @@
 
             </div>
         </section>
+        <!-- Modal Thông Báo -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modalMessage">Sản phẩm đã được thêm vào giỏ hàng!</p>
+            </div>
+        </div>
+
     </main>
 
     <!--Products-->
@@ -485,7 +493,7 @@
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
                 Validator.isConfirmed('#password_confirmation', function() {
                     return document.querySelector('#register__form #password').value;
-                }, 'Nhập lại mật khẩu không chính xác')
+                }, 'Re-enter invalid password')
             ],
             onSubmit: function(data) {
                 console.log(data);

@@ -411,6 +411,33 @@
             </div>
         </section>
 
+
+        <!--===============PRODUCT REVIEW===============-->
+        <section class="review section container">
+            <h2 class="section__title">Product Reviews</h2>
+            <div class="review__list ">
+                <div class="review__item">
+                    <i class='bx bxs-message-rounded-dots'></i>
+                    <span class="num" data-val="400">000</span>
+                    <span class="text">Feedback</span>
+                </div>
+                <div class="review__item">
+                    <i class='bx bxs-shopping-bag'></i>
+                    <span class="num" data-val="340">000</span>
+                    <span class="text">Shopping</span>
+                </div>
+                <div class="review__item">
+                    <i class='bx bx-star'></i>
+                    <span class="num" data-val="280">000</span>
+                    <span class="text">Five Stars</span>
+                </div>
+                <div class="review__item">
+                    <i class='bx bx-user'></i>
+                    <span class="num" data-val="225">000</span>
+                    <span class="text">User</span>
+                </div>
+            </div>
+        </section>
         <!--=============== NEWSLETTER ===============-->
         <section class="newsletter section">
 
@@ -425,8 +452,8 @@
                     <button class="button">Subscribe</button>
                 </form>
             </div>
-
         </section>
+
     </main>
 
     <!--=============== FOOTER ===============-->
@@ -442,7 +469,7 @@
 
                 <div class="footer__social">
                     <a href="#" class="footer__social-link"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="footer__social-link"><i class="bx bxl-instagram"></i></a>
+                    <a hrefr="#" class="footer__social-link"><i class="bx bxl-instagram"></i></a>
                     <a href="#" class="footer__social-link"><i class="bx bxl-twitter"></i></a>
                 </div>
             </div>
@@ -534,7 +561,7 @@
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
                 Validator.isConfirmed('#password_confirmation', function() {
                     return document.querySelector('#register__form #password').value;
-                }, 'Nhập lại mật khẩu không chính xác')
+                }, 'Re-enter invalid password')
             ],
             onSubmit: function(data) {
                 console.log(data);

@@ -246,21 +246,6 @@
             <h3 class="breadcrumb__subtitle">Shop > <span>Details</span></h3>
 
             <div class="details__container grid">
-                <div class="product__images grid">
-                    <div class="product__img">
-                        <div class="details__img-tag">New</div>
-                        <img src="assets/img/details-1.png" alt="">
-                    </div>
-                    <div class="product__img">
-                        <img src="assets/img/details-2.png" alt="">
-                    </div>
-                    <div class="product__img">
-                        <img src="assets/img/details-3.png" alt="">
-                    </div>
-                    <div class="product__img">
-                        <img src="assets/img/details-4.png" alt="">
-                    </div>
-                </div>
 
                 <div class="product__info">
                     <p class="details__subtitle">Wonmen > Jacket's</p>
@@ -286,8 +271,9 @@
                     <div class="details__description">
                         <h3 class="description__title">Product Details</h3>
                         <div class="description__details">
-                            <p>Light Gray solid Top, has a boat neck , 3/4 sleeves</p>
+                            <p class="description-content">Light Gray solid Top, has a boat neck, 3/4 sleeves</p>
                         </div>
+
                     </div>
 
                     <div class="cart__amount">
@@ -605,7 +591,7 @@
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
                 Validator.isConfirmed('#password_confirmation', function() {
                     return document.querySelector('#register__form #password').value;
-                }, 'Nhập lại mật khẩu không chính xác')
+                }, 'Re-enter invalid password')
             ],
             onSubmit: function(data) {
                 console.log(data);
