@@ -8,8 +8,7 @@
 
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    <!--=============== SWIPER CSS ===============-->
+    <!--===============SWIPER CSS===============-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <!--=============== CSS ===============-->
@@ -18,6 +17,117 @@
 
     <title>Ecommerce Colthes (NDChieu)</title>
 </head>
+
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        background-color: #f8f8f8;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .checkout-container {
+        background-color: #fff;
+        width: 90%;
+        max-width: 1200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .checkout-content {
+        display: flex;
+        gap: 20px;
+    }
+
+    .billing-info,
+    .order-summary {
+        flex: 1;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: #444;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    form input,
+    form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    form input:focus,
+    form select:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    .order-summary .order-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .order-summary .order-item:last-child {
+        border-bottom: none;
+    }
+
+    .order-summary .order-total {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
 
 <body>
     <!--=============== HEADER ===============-->
@@ -30,11 +140,11 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link "> Home</a>
+                        <a href="index.html" class="nav__link nav__link-focus active-link"> Home</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="shop.html" class="nav__link "> Shop</a>
+                        <a href="shop.html" class="nav__link"> Shop</a>
                     </li>
 
                     <li class="nav__item">
@@ -46,11 +156,11 @@
                     </li>
 
                     <li class="nav__item">
-                        <a href="faq.html" class="nav__link "> Fad</a>
+                        <a href="faq.html" class="nav__link"> Fad</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="contact.html" class="nav__link nav__link-focus active-link"> Contact</a>
+                        <a href="contact.html" class="nav__link"> Contact</a>
                     </li>
 
                     <li class="nav__item">
@@ -69,7 +179,10 @@
                 </div>
 
                 <div class="nav__shop" id="cart-shop">
-                    <i class="bx bx-shopping-bag"></i>
+                    <a href="cart.html">
+                        <i class="bx bx-shopping-bag" data-quantity="0"></i>
+                        <!-- id="cart-icon" -->
+                    </a>
                 </div>
 
                 <div class="nav__toggle" id="nav-toggle">
@@ -238,70 +351,6 @@
         </form>
     </div>
 
-
-    <!--=============== MAIN ===============-->
-    <main class="main">
-        <!--=============== CONTACT US ===============-->
-        <section class="contact section container">
-            <h2 class="breadcrumb__title">Contact Page</h2>
-            <h3 class="breadcrumb__subtitle">Home > <span>Contact</span></h3>
-
-            <div class="contact__container grid">
-                <div>
-                    <div class="contact__infomation">
-                        <i class="bx bx-phone contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Call Me</h3>
-                            <span class="contact__subtitle">033-571-2213</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__infomation">
-                        <i class="bx bx-envelope contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Email</h3>
-                            <span class="contact__subtitle">ndchieu21072000@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__infomation">
-                        <i class="bx bx-map contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Location</h3>
-                            <span class="contact__subtitle">1160 Huynh Tan Phat - Tan Phu - Quan 7</span>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="" class="contact__form grid">
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input">
-                        </div>
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
-                        </div>
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">SubText</label>
-                        <input type="text" class="contact__input">
-                    </div>
-
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Message</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
-                    </div>
-
-                    <div>
-                        <a href="" class="button">Send Message</a>
-                    </div>
-
-                </form>
-            </div>
-        </section>
-    </main>
 
     <!--=============== FOOTER ===============-->
     <footer class="footer section">

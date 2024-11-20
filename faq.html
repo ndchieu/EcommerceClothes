@@ -232,7 +232,7 @@
             </div>
             <div>
                 <p class="signup">Not a member ?
-                    <a id="register-link" href="#"> Sign Up Now</a>
+                    <a id="login-link" href="#"> Sign In Now</a>
                 </p>
             </div>
         </form>
@@ -256,7 +256,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -269,7 +271,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -282,7 +286,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -297,7 +303,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -310,7 +318,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -323,7 +333,9 @@
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos ducimus numquam enim quam, debitis atque soluta ea.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, adipisci rerum
+                                asperiores quaerat voluptate veritatis impedit quos ratione nostrum. Dignissimos sit eos
+                                ducimus numquam enim quam, debitis atque soluta ea.
                             </p>
                         </div>
                     </div>
@@ -435,11 +447,11 @@
                 Validator.isEmail('#email', 'Email is not correct'),
                 Validator.minLength('#password', 6, 'Please enter a minimum of 6 characters'),
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
-                Validator.isConfirmed('#password_confirmation', function() {
+                Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#register__form #password').value;
                 }, 'Re-enter invalid password')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data);
             }
         });
@@ -454,7 +466,7 @@
                 Validator.isRequired('#login_password', 'Please enter your password'),
                 Validator.minLength('#login_password', 6, 'Please enter a minimum of 6 characters')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data); // Thao tác khi form login hợp lệ
             }
         });

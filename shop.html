@@ -238,7 +238,7 @@
             </div>
             <div>
                 <p class="signup">Not a member ?
-                    <a id="register-link" href="#"> Sign Up Now</a>
+                    <a id="login-link" href="#"> Sign In Now</a>
                 </p>
             </div>
         </form>
@@ -259,97 +259,103 @@
                         <input type="text" id="searchBar" placeholder="Search for products...">
                         <i class="bx bx-search" id="btn"></i>
                     </div>
-                    <div class="filter__content">
-                        <button class="filter__subtitle" onclick="filterProduct('Jacket')">Condition</button>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>New </p><span>(13)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>New </p><span>(11)</span>
+                    <div class="filter__container">
+                        <div class="filte__show">Show Select <i class='bx bx-chevron-down'></i></div>
+                        <div class="filter__list">
+                            <div class="filter__content">
+                                <button class="filter__subtitle" onclick="filterProduct('Jacket')">Condition</button>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>New </p><span>(13)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>New </p><span>(11)</span>
+                                </div>
+                            </div>
+
+                            <div class="filter__content">
+                                <button class="filter__subtitle" onclick="filterProduct('Coat')">Size</button>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>S </p><span>(5)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>M </p><span>(18)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>L </p><span>(23)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>XL </p><span>(17)</span>
+                                </div>
+                            </div>
+
+                            <div class="filter__content">
+                                <button class="filter__subtitle" onclick="filterProduct('Adidas')">Categories</button>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Men </p><span>(22)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Women </p><span>(32)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Kids </p><span>(42)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Others </p><span>(12)</span>
+                                </div>
+                            </div>
+
+                            <div class="filter__content">
+                                <button class="filter__subtitle" onclick="filterProduct('Coat')">Styles</button>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Casnal </p><span>(11)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Dressy</p> <span>(5)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Girly </p><span>(21)</span>
+                                </div>
+                            </div>
+
+                            <div class="filter__content">
+                                <button class="filter__subtitle" onclick="filterProduct()">Sub Categories</button>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Jackets </p><span>(43)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>T-shirt </p><span>(21)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Accessories </p><span>(33)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Shoes </p><span>(12)</span>
+                                </div>
+                                <div class="filter">
+                                    <input type="checkbox" name="" id="">
+                                    <p>Coats </p><span>(11)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="filter__content">
-                        <button class="filter__subtitle" onclick="filterProduct('Coat')">Size</button>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>S </p><span>(5)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>M </p><span>(18)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>L </p><span>(23)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>XL </p><span>(17)</span>
-                        </div>
-                    </div>
-
-                    <div class="filter__content">
-                        <button class="filter__subtitle" onclick="filterProduct('Adidas')">Categories</button>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Men </p><span>(22)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Women </p><span>(32)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Kids </p><span>(42)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Others </p><span>(12)</span>
-                        </div>
-                    </div>
-
-                    <div class="filter__content">
-                        <button class="filter__subtitle" onclick="filterProduct('Coat')">Styles</button>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Casnal </p><span>(11)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Dressy</p> <span>(5)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Girly </p><span>(21)</span>
-                        </div>
-                    </div>
-
-                    <div class="filter__content">
-                        <button class="filter__subtitle" onclick="filterProduct()">Sub Categories</button>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Jackets </p><span>(43)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>T-shirt </p><span>(21)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Accessories </p><span>(33)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Shoes </p><span>(12)</span>
-                        </div>
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Coats </p><span>(11)</span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="shop__items grid" id="productList">
@@ -481,6 +487,14 @@
     <script src="./assets/js/main.js"></script>
 
     <script>
+
+        const filterShow = document.querySelector('.filte__show')
+        const filterList = document.querySelector('.filter__list')
+
+        filterShow.addEventListener('click', () => {
+            filterList.classList.toggle('active')
+        })
+
         Validator({
             form: '#register__form',
             errorSelector: '.register-message',
@@ -491,11 +505,11 @@
                 Validator.isEmail('#email', 'Email is not correct'),
                 Validator.minLength('#password', 6, 'Please enter a minimum of 6 characters'),
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
-                Validator.isConfirmed('#password_confirmation', function() {
+                Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#register__form #password').value;
                 }, 'Re-enter invalid password')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data);
             }
         });
@@ -510,7 +524,7 @@
                 Validator.isRequired('#login_password', 'Please enter your password'),
                 Validator.minLength('#login_password', 6, 'Please enter a minimum of 6 characters')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data); // Thao tác khi form login hợp lệ
             }
         });

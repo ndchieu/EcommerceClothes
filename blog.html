@@ -232,7 +232,7 @@
             </div>
             <div>
                 <p class="signup">Not a member ?
-                    <a id="register-link" href="#"> Sign Up Now</a>
+                    <a id="login-link" href="#"> Sign In Now</a>
                 </p>
             </div>
         </form>
@@ -251,11 +251,14 @@
                     <img src="assets/img/blog-1.webp" alt="" class="blog__img">
 
                     <div class="blog__info">
-                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
+                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+                            suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur
+                            voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
                         <h3 class="blog__title">From Now We Are Certified Web...</h3>
                         <p class="blog__date">By Admin/ April 30, 2024</p>
                         <div class="read__more">
-                            <a href="#" class="button--link button--flex">Read More <i class="bx bx-right-arrow-alt button__icon"></i></a>
+                            <a href="#" class="button--link button--flex">Read More <i
+                                    class="bx bx-right-arrow-alt button__icon"></i></a>
                         </div>
                     </div>
                 </div>
@@ -264,11 +267,14 @@
                     <img src="assets/img/blog-2.webp" alt="" class="blog__img">
 
                     <div class="blog__info">
-                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
+                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+                            suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur
+                            voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
                         <h3 class="blog__title">From Now We Are Certified Web...</h3>
                         <p class="blog__date">By Admin/ April 30, 2024</p>
                         <div class="read__more">
-                            <a href="#" class="button--link button--flex">Read More <i class="bx bx-right-arrow-alt button__icon"></i></a>
+                            <a href="#" class="button--link button--flex">Read More <i
+                                    class="bx bx-right-arrow-alt button__icon"></i></a>
                         </div>
                     </div>
                 </div>
@@ -277,11 +283,14 @@
                     <img src="assets/img/blog-1.webp" alt="" class="blog__img">
 
                     <div class="blog__info">
-                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
+                        <p class="blog__details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit neque
+                            suscipit repellat beatae aut, esse architecto a quo magni nam doloremque consequatur
+                            voluptates non, iste tenetur! Minima quasi facilis nostrum.</p>
                         <h3 class="blog__title">From Now We Are Certified Web...</h3>
                         <p class="blog__date">By Admin/ April 30, 2024</p>
                         <div class="read__more">
-                            <a href="#" class="button--link button--flex">Read More <i class="bx bx-right-arrow-alt button__icon"></i></a>
+                            <a href="#" class="button--link button--flex">Read More <i
+                                    class="bx bx-right-arrow-alt button__icon"></i></a>
                         </div>
                     </div>
                 </div>
@@ -403,11 +412,11 @@
                 Validator.isEmail('#email', 'Email is not correct'),
                 Validator.minLength('#password', 6, 'Please enter a minimum of 6 characters'),
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
-                Validator.isConfirmed('#password_confirmation', function() {
+                Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#register__form #password').value;
                 }, 'Re-enter invalid password')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data);
             }
         });
@@ -422,7 +431,7 @@
                 Validator.isRequired('#login_password', 'Please enter your password'),
                 Validator.minLength('#login_password', 6, 'Please enter a minimum of 6 characters')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data); // Thao tác khi form login hợp lệ
             }
         });

@@ -95,14 +95,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                        <i class="bx bx-minus"></i>
-                    </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                        <i class="bx bx-plus"></i>
-                    </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -122,14 +122,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                        <i class="bx bx-minus"></i>
-                    </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                        <i class="bx bx-plus"></i>
-                    </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -149,14 +149,14 @@
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
-                        <i class="bx bx-minus"></i>
-                    </span>
+                                <i class="bx bx-minus"></i>
+                            </span>
 
                             <span class="cart__amoune-number">1</span>
 
                             <span class="cart__amount-box">
-                        <i class="bx bx-plus"></i>
-                    </span>
+                                <i class="bx bx-plus"></i>
+                            </span>
                         </div>
 
                         <i class="bx bx-trash-alt cart__amount-trash"></i>
@@ -231,7 +231,7 @@
             </div>
             <div>
                 <p class="signup">Not a member ?
-                    <a id="register-link" href="#"> Sign Up Now</a>
+                    <a id="login-link" href="#"> Sign In Now</a>
                 </p>
             </div>
         </form>
@@ -252,7 +252,9 @@
                     </h2>
 
                     <p class="about__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sunt qui nemo dolore veniam facere eum error vitae rerum. Fugiat tempora eum ducimus non nulla consequatur aperiam id consequuntur eos?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sunt qui nemo dolore veniam
+                        facere eum error vitae rerum. Fugiat tempora eum ducimus non nulla consequatur aperiam id
+                        consequuntur eos?
                     </p>
 
                     <div class="about__details">
@@ -261,7 +263,8 @@
                         </p>
 
                         <p class="about__details-description">
-                            <i class="bx bxs-check-square about__details-icon"></i>We give you guide to product and care for your products.
+                            <i class="bx bxs-check-square about__details-icon"></i>We give you guide to product and care
+                            for your products.
                         </p>
 
                         <p class="about__details-description">
@@ -375,11 +378,11 @@
                 Validator.isEmail('#email', 'Email is not correct'),
                 Validator.minLength('#password', 6, 'Please enter a minimum of 6 characters'),
                 Validator.isRequired('#password_confirmation', 'Please re-enter your password'),
-                Validator.isConfirmed('#password_confirmation', function() {
+                Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#register__form #password').value;
                 }, 'Re-enter invalid password')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data);
             }
         });
@@ -394,7 +397,7 @@
                 Validator.isRequired('#login_password', 'Please enter your password'),
                 Validator.minLength('#login_password', 6, 'Please enter a minimum of 6 characters')
             ],
-            onSubmit: function(data) {
+            onSubmit: function (data) {
                 console.log(data); // Thao tác khi form login hợp lệ
             }
         });
