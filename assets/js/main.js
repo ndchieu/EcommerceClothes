@@ -1,3 +1,11 @@
+/*=============== PRELOADER ===============*/
+var loader = document.getElementById("preloader");
+window.addEventListener("load", function () {
+  this.setTimeout(function () {
+    loader.style.display = "none";
+  }, 900);
+});
+
 /*=============== HIỂN THỊ MENU ===============*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
@@ -110,6 +118,7 @@ function scrollHeader() {
 window.addEventListener("scroll", scrollHeader);
 
 /*=============== SWIPER SẢN PHẨM MỚI ===============*/
+
 var newSwiper = new Swiper(" .new-swiper", {
   spaceBetween: 16, // Khoảng cách giữa các slide
   centeredSlider: true, // Các slide được căn giữa
@@ -154,19 +163,47 @@ const toogleItem = (item) => {
 };
 
 /*=============== CHUYỂN ĐỔI PHONG CÁCH GIAO DIỆN ===============*/
+
 const styleSwitcherToggle = document.querySelector(".style__switcher-toggler");
 styleSwitcherToggle.addEventListener("click", () => {
   document.querySelector(".style__switcher").classList.toggle("open"); // Bật/tắt bảng chọn style
 });
 
 /*=============== ẨN BẢNG CHỌN STYLE KHI CUỘN ===============*/
+
 window.addEventListener("scroll", () => {
   if (document.querySelector(".style__switcher").classList.contains("open")) {
     document.querySelector(".style__switcher").classList.remove("open"); // Ẩn bảng chọn style khi cuộn
   }
 });
 
+/*=============== DARK MOON ===============*/
+// Lấy phần tử biểu tượng
+var icon_darkmore = document.getElementById("icon_darkmore");
+
+// Kiểm tra trạng thái lưu trong localStorage khi tải trang
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-theme");
+  icon_darkmore.classList = "bx bxs-sun";
+} else {
+  document.body.classList.remove("dark-theme");
+  icon_darkmore.classList = "bx bxs-moon";
+}
+
+// Thay đổi theme khi nhấn vào biểu tượng
+icon_darkmore.onclick = function () {
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark"); // Lưu trạng thái dark vào localStorage
+    icon_darkmore.classList = "bx bxs-sun";
+  } else {
+    localStorage.setItem("theme", "light"); // Lưu trạng thái light vào localStorage
+    icon_darkmore.classList = "bx bxs-moon";
+  }
+};
+
 /*=============== MÀU CHỦ ĐỀ ===============*/
+
 function themeColors() {
   const colorStyle = document.querySelector(".js-color-style"),
     themeColorsContainer = document.querySelector(".js-theme-colors");
@@ -215,7 +252,7 @@ function themeColors() {
 
 themeColors(); // Gọi hàm thiết lập màu chủ đề
 
-/**Review Shop */
+/*=============== REVIEW ===============*/
 
 let valueDisplays = document.querySelectorAll(".num");
 let interval = 3000;
@@ -232,7 +269,8 @@ valueDisplays.forEach((valueDisplay) => {
   }, duration);
 });
 
-/**VALIDATOR */
+/*=============== VALIDATOR LOGIN REGISTER ===============*/
+
 function Validator(options) {
   function getParent(element, selector) {
     while (element.parentElement) {
@@ -403,7 +441,8 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
   };
 };
 
-/**ADD TO CART */
+/*=============== ADD TO CART ===============*/
+
 // Mảng sản phẩm
 const products = [
   {
@@ -764,6 +803,7 @@ function changeQuantity(event) {
     }
   }
 }
+
 // Hiển thị sản phẩm trên trang giỏ hàng
 function renderCartItems() {
   if (cartItemsElement) {
@@ -786,6 +826,7 @@ function renderCartItems() {
         `
       )
       .join("");
+
     //Remove Form Cart
     const removeButtons = document.getElementsByClassName("remove-from-cart");
     for (let i = 0; i < removeButtons.length; i++) {

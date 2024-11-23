@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "title": "Cartoon Jacket",
+      "tag": "New",
+      "category": "Jacket",
+      "image": "assets/img/product-1.png",
+      "subtitle": "Accessory",
+      "price": 14.9,
+      "discounted_price": 25.99,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    },
+    {
+      "id": 2,
+      "title": "Clothing Hat Coat",
+      "tag": "Sale",
+      "category": "Coat",
+      "image": "assets/img/product-2.png",
+      "subtitle": "Accessory",
+      "price": 11.9,
+      "discounted_price": 21.99,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    },
+    {
+      "id": 3,
+      "title": "Fur Jacket",
+      "tag": "Sale",
+      "category": "Adidas",
+      "image": "assets/img/product-3.png",
+      "subtitle": "Accessory",
+      "price": 4.9,
+      "discounted_price": 15.99,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    },
+    {
+      "id": 4,
+      "title": "Fleece Jacket",
+      "tag": "New",
+      "category": "Adidas",
+      "image": "assets/img/product-4.png",
+      "subtitle": "Accessory",
+      "price": 7.9,
+      "discounted_price": 15.99,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    },
+    {
+      "id": 5,
+      "title": "Windbreakr Jacket",
+      "tag": "New",
+      "category": "Coat",
+      "image": "assets/img/product-5.png",
+      "subtitle": "Accessory",
+      "price": 109,
+      "discounted_price": 159.9,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    },
+    {
+      "id": 6,
+      "title": "Adidas Tracksubt",
+      "tag": "Sale",
+      "category": "Jacket",
+      "image": "assets/img/product-6.png",
+      "subtitle": "Accessory",
+      "price": 119,
+      "discounted_price": 159.9,
+      "description": "This is a description of the product.",
+      "link": "details.html"
+    }
+  ]
+  
