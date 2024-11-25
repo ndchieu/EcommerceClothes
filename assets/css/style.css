@@ -1098,6 +1098,25 @@ body.show-emoji-picker em-emoji-picker {
   cursor: pointer;
 }
 
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .search__bar {
   overflow: hidden;
   position: relative;
@@ -1294,6 +1313,42 @@ body.show-emoji-picker em-emoji-picker {
 
 /*=============== DETAILS PAGE ===============*/
 
+.show-full-img {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.show-full-img img {
+  width: 90%;
+  max-width: 500px;
+}
+
+.show-full-img span {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.show-full-img span:hover {
+  color: red;
+  border-color: red;
+  background-color: #ecf4fb;
+}
+
 .details__container {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -1301,12 +1356,15 @@ body.show-emoji-picker em-emoji-picker {
 }
 
 .product__images {
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
   gap: 1.4rem;
 }
 
-.product__img {
-  background-color: var(--container-color);
+.product_img-item img {
+  max-height: 260px;
+}
+
+.product__imgs {
   padding: 1.2rem 0;
   display: flex;
   justify-content: center;
@@ -1314,6 +1372,29 @@ body.show-emoji-picker em-emoji-picker {
   border-radius: 0.5rem;
   position: relative;
   cursor: pointer;
+}
+
+.product__imgs img {
+  background-color: var(--container-color);
+  gap: 1rem;
+  margin: 0 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.product__imgs img:hover {
+  transform: scale(1.1);
+}
+
+.product_img-active {
+  background-color: var(--container-color);
+  align-items: center;
+  text-align: center;
+}
+
+.product_img-active img {
+  width: 60%;
+  height: auto;
 }
 
 .details__img-tag {
@@ -1325,10 +1406,6 @@ body.show-emoji-picker em-emoji-picker {
   font-size: var(--small-font-size);
   padding: 0.16rem 0.5rem;
   border-radius: 0.25rem;
-}
-
-.product__img img {
-  width: 150px;
 }
 
 .details__subtitle {
@@ -1642,6 +1719,96 @@ body.show-emoji-picker em-emoji-picker {
   background-color: var(--container-color);
   border-radius: 1.2rem;
   padding: 1.5rem;
+}
+
+.review__box {
+  width: 90%;
+  height: 300px;
+  margin-bottom: 60px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  height: 300px;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.card::before {
+  content: "";
+  width: 110px;
+  height: 110px;
+  border-bottom-right-radius: 100%;
+  background: var(--first-color);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.profile img {
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile h3 {
+  font-size: 26px;
+  color: var(--first-color);
+  margin-bottom: 4px;
+}
+
+#review-slide {
+  width: 100%;
+  padding-right: 60px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s ease-in;
+}
+
+.slidebar {
+  width: 60px;
+  height: 100%;
+  padding: 15px 0;
+  background: var(--first-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slidebar i {
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 12px;
+  align-items: center;
+}
+
+.slidebar i:hover {
+  cursor: pointer;
+  background-color: #aaa;
+  color: #000;
 }
 
 .review__list {
