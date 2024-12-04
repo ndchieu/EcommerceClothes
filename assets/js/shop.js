@@ -1,99 +1,4 @@
 /*======================== SHOP PRODUCT ========================*/
-
-// Mảng sản phẩm
-const products = [
-  {
-    id: 1,
-    title: "Cartoon Jacket",
-    tag: "New",
-    category: "Jacket",
-    image: "assets/img/product-1.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 14.9,
-    discounted_price: 25.99,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-  {
-    id: 2,
-    title: "Clothing Hat Coat",
-    tag: "Sale",
-    category: "Coat",
-    image: "assets/img/product-2.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 11.9,
-    discounted_price: 21.99,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-  {
-    id: 3,
-    title: "Fur Jacket",
-    tag: "Sale",
-    category: "Adidas",
-    image: "assets/img/product-3.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 4.9,
-    discounted_price: 15.99,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-  {
-    id: 4,
-    title: "Fleece Jacket",
-    tag: "New",
-    category: "Adidas",
-    image: "assets/img/product-4.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 7.9,
-    discounted_price: 15.99,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-  {
-    id: 5,
-    title: "Windbreakr Jacket",
-    tag: "New",
-    category: "Coat",
-    image: "assets/img/product-5.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 109,
-    discounted_price: 159.9,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-  {
-    id: 6,
-    title: "Adidas Tracksubt",
-    tag: "Sale",
-    category: "Jacket",
-    image: "assets/img/product-6.png",
-    image2: "assets/img/product-2.png",
-    image3: "assets/img/product-3.png",
-    image4: "assets/img/product-4.png",
-    subtitle: "Accessory",
-    price: 119,
-    discounted_price: 159.9,
-    description: "This is a description of the product.",
-    link: "details.html",
-  },
-];
-
 // Lấy danh sách sản phẩm và phần tử
 const productList = document.getElementById("productList");
 const cartItemsElement = document.getElementById("cartItems");
@@ -102,11 +7,26 @@ const cartTotalElement = document.getElementById("cartTotal");
 // Lưu trữ sản phẩm trong giỏ hàng vào Local Storage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Hiển thị sản phẩm trên trang
-// Giả sử products là danh sách các sản phẩm bạn có.
+// Dữ liệu sản phẩm (sẽ được fetch từ product.json)
+let products = [];
+
+// Khi DOM được tải
 document.addEventListener("DOMContentLoaded", () => {
-  // Render tất cả sản phẩm ban đầu
-  renderProducts();
+  // Fetch dữ liệu từ product.json
+  fetch("product.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      products = data; // Lưu dữ liệu vào biến products
+      renderProducts(); // Render sản phẩm sau khi lấy dữ liệu
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
 
   // Sự kiện cho ô tìm kiếm
   document.getElementById("searchBar").addEventListener("keyup", (event) => {
@@ -135,7 +55,7 @@ function renderProducts() {
                         2
                       )}</span>
                   </div>
-                  <a href="#" class="add-to-cart button new__button" data-id="${
+                  <a onclick="showToast(successMsg)" href="#"  class="add-to-cart button new__button" data-id="${
                     product.id
                   }">
                       <i class="bx bx-cart-alt new__icon"></i>
@@ -165,8 +85,6 @@ function filterProducts(searchTerm) {
   renderFilteredProducts(filteredProducts);
 }
 
-/*======================== SEARCH PRODUCT ====================*/
-
 function renderFilteredProducts(filteredProducts) {
   if (productList) {
     productList.innerHTML = filteredProducts
@@ -174,10 +92,9 @@ function renderFilteredProducts(filteredProducts) {
         (product) => `
               <div class="shop__content swiper-slide">
                   <div class="shop__tag">${product.tag}</div>
-                  <img  onclick="showDetails(${product.id})"  src="${
+                  <img  onclick="showDetails(${product.id})" src="${
           product.image
-        }" 
-                  alt="${product.title}" class="shop__img">
+        }" alt="${product.title}" class="shop__img">
                   <h3 class="shop__title">${product.title}</h3>
                   <span class="shop__subtitle">${product.subtitle}</span>
                   <div class="shop__prices">
@@ -188,7 +105,7 @@ function renderFilteredProducts(filteredProducts) {
                         2
                       )}</span>
                   </div>
-                  <a href="#" class="add-to-cart button new__button" data-id="${
+                  <a  onclick="showToast(successMsg)" href="#" class="add-to-cart button new__button" data-id="${
                     product.id
                   }">
                       <i class="bx bx-cart-alt new__icon"></i>
@@ -205,4 +122,30 @@ function renderFilteredProducts(filteredProducts) {
       button.addEventListener("click", addToCart);
     }
   }
+}
+
+let toastBox = document.getElementById("toastBox");
+let successMsg =
+  '<i class="bx bxs-check-circle"></i> <p style="color: var(--text-color);">The product has been added to the cart</p>';
+let errorMsg =
+  '<i class="bx bxs-x-circle" ></i> <p style="color: var(--text-color);">Product has been removed from the cart</p>';
+let invalidMsg;
+('<i class="fa-solid fa-circle-exclamation"></i> You are not logged in yet');
+function showToast(msg) {
+  let toast = document.createElement("div");
+  toast.style = "font-size : 12px ; color: text-color";
+  toast.classList.add("toast");
+  toast.innerHTML = msg;
+  toastBox.appendChild(toast);
+
+  if (msg.includes("removed")) {
+    toast.classList.add("error");
+  }
+  if (msg.includes("logged")) {
+    toast.classList.add("invalid");
+  }
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
 }

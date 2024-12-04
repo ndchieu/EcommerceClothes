@@ -79,7 +79,9 @@ function renderCartItems() {
                       }" data-id="${item.id}">
                   </div>
                   <h2 class="cart-item-price">$${item.price.toFixed(2)}</h2>
-                  <button class="remove-from-cart" data-id="${item.id}">
+                  <button onclick="showToast(errorMsg)" class="remove-from-cart" data-id="${
+                    item.id
+                  }">
                      Delete
                   </button>
               </div>
@@ -135,9 +137,3 @@ function updateCartIconCartChange() {
 }
 
 window.addEventListener("DOMContentLoaded", updateCartIconCartChange);
-
-function updateCartIcon() {
-  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartIcon = document.getElementById("cart-icon");
-  cartIcon.setAttribute("data-quantity", totalQuantity);
-}

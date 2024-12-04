@@ -84,10 +84,8 @@ function renderDetails() {
                         product.id
                       }"> 
                   </div>
-                  <a href="#" class="button" data-id="${
-                    product.id
-                  }"onclick="addToCart(event)">Add To Cart</a>
-  
+                  <a href="#" class="button" data-id="${product.id}
+                  "onclick="addToCart(event)">Add To Cart</a>
               </div>
           `;
   }
